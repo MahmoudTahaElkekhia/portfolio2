@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mahmoud Elkekhia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="sass/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div id="logo">Mahmoud Elkekhia</div>
+        <div @click="menuToggle()" :class="{active: menuActive}" id="menuBtn">
+          <div></div>
+          <div></div>
+        </div>
+      </header>
+      <nav :class="{active: menuActive}">
+        <div></div>
+        <ul>
+          <li>
+            <a :class="{ active: activeSection === 'profile' }" href="#profile"
+              >Profile</a
+            >
+          </li>
+          <li>
+            <a
+              :class="{ active: activeSection === 'education' }"
+              href="#education"
+              >Education</a
+            >
+          </li>
+          <li>
+            <a
+              :class="{ active: activeSection === 'experience' }"
+              href="#experience"
+              >Experience</a
+            >
+          </li>
+        </ul>
+        <div class="social">
+          <a href="mailto:mahmoudtaha222233334@gmail.com">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a target="_blank" href="https://www.facebook.com/mahmoud.elkekhia/">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/in/mahmoud-elkikhiya">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </nav>
+      <main>
+        <section style="margin-top: 70px" id="about">
+          <h1>Mahmoud Taha</h1>
+          <h3>Software Engineer</h3>
+        </section>
+        <section id="profile">
+          <p>
+            Highly skilled Full Stack Developer in building responsive and
+            scalable web applications. Proficient in both front-end and back-end
+            technologies. Adept at collaborating with cross-functional teams to
+            deliver innovative solutions that meet business objectives.
+          </p>
+        </section>
+        <section id="education">
+          <div class="cell">HTML</div>
+          <div class="cell">CSS</div>
+          <div class="cell">SASS</div>
+          <div class="cell">Bootstrap</div>
+          <div class="cell">JavaScript</div>
+          <div class="cell">Vue JS</div>
+          <div class="cell">Jquery</div>
+          <div class="cell">PHP</div>
+          <div class="cell">MySQL</div>
+          <div class="cell">C</div>
+          <div class="cell">C++</div>
+          <div class="cell">C#</div>
+          <div class="cell">Classic Control</div>
+          <div class="cell">PLC Level 1</div>
+          <div class="cell">CCNA</div>
+          <div class="cell">Arduino</div>
+          <div class="cell">NodeMCU</div>
+          <div class="cell">MS Word</div>
+          <div class="cell">MS Excel</div>
+          <div class="cell">Corel Draw</div>
+          <div class="cell">PhotoShop</div>
+        </section>
+        <section id="experience">
+          <dl>
+            <dt>Graduation:</dt>
+            <dd>Graduated form HIET-KFS in 2022.</dd>
+            <dt>Graduation Project:</dt>
+            <dd>
+              Access control system - Smart curtains - Smart lighting - Smart
+              parking - Solar energy - Fire alarm system - Smart basket by web
+              application (using firebase).
+            </dd>
+            <dt>Jul 2022 to April 2023:</dt>
+            <dd>CNC laser designer</dd>
+            <dt>May 2022 to Sep 2023:</dt>
+            <dd>Student at the Reserve Officers College.</dd>
+            <dt>Oct 2023 to Jul 2024:</dt>
+            <dd>
+              Working in Officer Affairs in the National Service Projects Agency
+              of the Egyptian Armed Forces as a national service.
+            </dd>
+          </dl>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          activeSection: "",
+          menuActive: false,
+        },
+        created() {
+          window.addEventListener("scroll", this.onScroll);
+        },
+        methods: {
+          menuToggle() {
+            this.menuActive = !this.menuActive;
+          },
+          onScroll() {
+            const sections = document.querySelectorAll("section");
+            let current = "";
+            sections.forEach((section) => {
+              const sectionTop = section.offsetTop;
+              if (window.pageYOffset >= sectionTop - 70) {
+                current = section.getAttribute("id");
+              }
+            });
+            this.activeSection = current;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

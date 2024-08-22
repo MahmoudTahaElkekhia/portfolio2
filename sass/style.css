@@ -1,0 +1,448 @@
+* {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  cursor: default;
+}
+
+::-webkit-scrollbar {
+  background: #000;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: orangered;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+  margin: 70px 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: orange;
+}
+
+header {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 70px;
+  background-color: #000;
+  padding: 0px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9;
+}
+header #logo {
+  font-family: "Bebas Neue", Georgia, "Times New Roman", Times, serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+}
+header #menuBtn {
+  height: 70px;
+  width: 70px;
+  position: relative;
+  cursor: pointer;
+}
+header #menuBtn div {
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  right: 0%;
+  transition: all 0.4s;
+}
+header #menuBtn div:nth-of-type(1) {
+  width: 30px;
+  top: 43%;
+}
+header #menuBtn div:nth-of-type(2) {
+  width: 20px;
+  top: 57%;
+}
+header #menuBtn.active div {
+  width: 30px;
+  top: 50%;
+}
+header #menuBtn.active div:nth-of-type(1) {
+  transform: rotate(45deg);
+}
+header #menuBtn.active div:nth-of-type(2) {
+  transform: rotate(-45deg);
+}
+
+nav {
+  position: fixed;
+  left: -100%;
+  top: 70px;
+  width: 100%;
+  z-index: 9;
+  height: calc(100vh - 70px);
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px;
+  transition: left 0.5s;
+}
+nav.active {
+  left: 0%;
+}
+nav ul {
+  list-style-type: none;
+}
+nav ul li {
+  margin: 30px 0px;
+}
+nav ul li a {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 4px;
+  font-size: 24px;
+  padding: 0px 5px;
+  position: relative;
+  text-decoration: none;
+}
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 4px;
+  background: orangered;
+  transition: width 0.2s linear;
+}
+nav ul li a:hover::after {
+  width: 98%;
+}
+nav ul li a.active::after {
+  width: 98%;
+}
+nav .social {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+nav .social a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  transition: color 0.5s;
+}
+nav .social a:hover {
+  color: orange;
+}
+
+section#about {
+  width: 100%;
+  height: 170px;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0px;
+}
+section#about h1 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 24px;
+  font-weight: 100;
+  transition: color 0.3s;
+  cursor: default;
+  color: orangered;
+}
+section#about h3 {
+  color: #fff;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 20px;
+  transition: color 0.3s;
+  cursor: default;
+}
+section#about h3:hover {
+  color: rgb(255, 193, 79);
+}
+
+section#profile {
+  height: auto;
+  padding: 50px 30px;
+}
+section#profile p {
+  font-family: "Bebas Neue", Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #000000;
+  text-shadow: orangered 1px 1px 2px;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  section#profile p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 500px) {
+  section#profile p {
+    font-size: 14px;
+  }
+}
+
+section#education {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #000;
+}
+section#education .cell {
+  flex-basis: calc(20% - 5px);
+  color: #aaa;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  padding: 5px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: color 0.5s;
+}
+section#education .cell:hover {
+  color: #fff;
+}
+section#education .cell:nth-of-type(1) {
+  position: relative;
+}
+section#education .cell:nth-of-type(1)::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 68, 0, 0.6), transparent);
+  height: 500%;
+}
+section#education .cell:nth-of-type(2) {
+  position: relative;
+}
+section#education .cell:nth-of-type(2)::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 68, 0, 0.9), transparent);
+  height: 500%;
+}
+section#education .cell:nth-of-type(3) {
+  position: relative;
+}
+section#education .cell:nth-of-type(3)::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 68, 0, 0.9), transparent);
+  height: 500%;
+}
+section#education .cell:nth-of-type(4) {
+  position: relative;
+}
+section#education .cell:nth-of-type(4)::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 68, 0, 0.6), transparent);
+  height: 500%;
+}
+section#education .cell:nth-of-type(1)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 68, 0, 0.6), transparent);
+  width: 500%;
+}
+section#education .cell:nth-of-type(6) {
+  position: relative;
+}
+section#education .cell:nth-of-type(6)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 68, 0, 0.8), transparent);
+  width: 500%;
+}
+section#education .cell:nth-of-type(11) {
+  position: relative;
+}
+section#education .cell:nth-of-type(11)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 68, 0, 0.8), transparent);
+  width: 500%;
+}
+section#education .cell:nth-of-type(16) {
+  position: relative;
+}
+section#education .cell:nth-of-type(16)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 68, 0, 0.8), transparent);
+  width: 500%;
+}
+@media (max-width: 650px) {
+  section#education .cell {
+    flex-basis: calc(33.3333% - 8px);
+    font-size: 12px;
+  }
+  section#education .cell:nth-of-type(1)::before {
+    height: 700%;
+    background: linear-gradient(to bottom, transparent, rgba(255, 68, 0, 0.6), transparent);
+  }
+  section#education .cell:nth-of-type(2)::before {
+    height: 700%;
+    background: linear-gradient(to bottom, transparent, rgba(255, 68, 0, 0.6), transparent);
+  }
+  section#education .cell:nth-of-type(3)::before {
+    display: none;
+  }
+  section#education .cell:nth-of-type(4)::before {
+    display: none;
+  }
+  section#education .cell:nth-of-type(1)::after {
+    background: linear-gradient(to right, transparent, rgba(255, 68, 0, 0.4), transparent);
+    width: 300%;
+  }
+  section#education .cell:nth-of-type(4) {
+    position: relative;
+  }
+  section#education .cell:nth-of-type(4)::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 68, 0, 0.6), transparent);
+    width: 300%;
+  }
+  section#education .cell:nth-of-type(7) {
+    position: relative;
+  }
+  section#education .cell:nth-of-type(7)::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 68, 0, 0.8), transparent);
+    width: 300%;
+  }
+  section#education .cell:nth-of-type(10) {
+    position: relative;
+  }
+  section#education .cell:nth-of-type(10)::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 68, 0, 0.8), transparent);
+    width: 300%;
+  }
+  section#education .cell:nth-of-type(13) {
+    position: relative;
+  }
+  section#education .cell:nth-of-type(13)::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 68, 0, 0.6), transparent);
+    width: 300%;
+  }
+  section#education .cell:nth-of-type(16) {
+    position: relative;
+  }
+  section#education .cell:nth-of-type(16)::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 68, 0, 0.4), transparent);
+    width: 300%;
+  }
+  section#education .cell:nth-of-type(6)::after {
+    display: none;
+  }
+  section#education .cell:nth-of-type(11)::after {
+    display: none;
+  }
+}
+
+section#experience {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 40px 20px;
+  background-color: #fff;
+}
+section#experience dt {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 22px;
+  color: orangered;
+  font-weight: bold;
+  text-decoration: underline;
+  text-transform: capitalize;
+  padding: 3px;
+  text-shadow: #000 1px 1px 2px;
+}
+@media (max-width: 700px) {
+  section#experience dt {
+    font-size: 18px;
+  }
+}
+section#experience dd {
+  display: block;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding-left: 22px;
+  text-shadow: orangered 1px 1px 2px;
+}
+@media (max-width: 700px) {
+  section#experience dd {
+    font-size: 14px;
+  }
+}/*# sourceMappingURL=style.css.map */
